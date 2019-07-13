@@ -3,7 +3,8 @@ var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
 var template = require('./lib/template.js');
- 
+var port = process.env.PORT || 3000; 
+
 var app = http.createServer(function(request,response){
     var _url = request.url;
     var queryData = url.parse(_url, true).query;
@@ -131,6 +132,6 @@ var app = http.createServer(function(request,response){
       response.end('Not found');
     }
 });
-app.listen(3000);
+app.listen(port);
 // main을 수정하면 nodejs를 재시작하면 내용이 변경되고
 // txt를 수정하면 재시작이 필요없다(main에서 호출될 때 마다 불러오기 때문) 
